@@ -21,6 +21,6 @@ def downloads_pic(pic_name):
 
 
 if __name__ == '__main__':
-    for i in range(100):
+    for i in range(10):
         pic_name = int(time.time() * 1000000)
         downloads_pic('{}.{}'.format(pic_name,'png'))
