@@ -3,6 +3,9 @@
 import os
 import pytesseract
 from PIL import Image
+from captcha import(
+    Captcha
+)
 
 def binarizing(img, threshold):
     """传入image对象进行灰度、二值处理"""
@@ -47,9 +50,16 @@ def depoint(img):
     return img
 
 if __name__ == '__main__':
-    im = Image.open('{}/picture/{}'.format(os.getcwd(),'1525339307443406.png'))
+    path = '{}/picture/{}'.format(os.getcwd(),'1525344149253753.png')
+    im = Image.open(path)
     im.show()
-    binaryImage = binarizing(im, 150)
+    # 水滴算法
+    captchainfo = Captcha(im)
+    captchainfo.rgb_img2mat()
+    binaryImage = captchainfo.get_img()
+    binaryImage.show()
+    # 拆分
+    binaryImage = binarizing(binaryImage, 150)
     # 降噪
     binaryImage = depoint(binaryImage)
     # 展示
