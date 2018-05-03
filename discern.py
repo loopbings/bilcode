@@ -7,6 +7,7 @@ from captcha import(
     Captcha
 )
 
+
 def binarizing(img, threshold):
     """传入image对象进行灰度、二值处理"""
     img = img.convert("L")  # 转灰度
@@ -50,20 +51,37 @@ def depoint(img):
     return img
 
 if __name__ == '__main__':
-    path = '{}/picture/{}'.format(os.getcwd(),'1525344149253753.png')
-    im = Image.open(path)
-    im.show()
-    # 水滴算法
-    captchainfo = Captcha(im)
-    captchainfo.rgb_img2mat()
-    binaryImage = captchainfo.get_img()
-    binaryImage.show()
-    # 拆分
-    binaryImage = binarizing(binaryImage, 150)
-    # 降噪
-    binaryImage = depoint(binaryImage)
-    # 展示
-    binaryImage.show()
-    # 转换
-    text = pytesseract.image_to_string(binaryImage, config='-psm 7')
-    print(text)
+    # rootdir = '{}/picture/'.format(os.getcwd())
+    # list = os.listdir(rootdir)
+    # filename='{}/{}'.format(os.getcwd(),'result.txt')
+    # 遍历所有文件路径
+    # piclist = []
+    # for i in range(0, len(list)):
+    #     path = os.path.join(rootdir, list[i])
+    #     if os.path.isfile(path):
+    #         piclist.append(path)
+    # 验证码list
+    # codelist = []
+    # for str_path in piclist:
+        path = '{}/picture/{}'.format(os.getcwd(),'1525348077163796.png')
+        # path = str_path
+        im = Image.open(path)
+        im.show()
+        # 水滴算法
+        captchainfo = Captcha(im)
+        captchainfo.rgb_img2mat()
+        im = captchainfo.get_img()
+        im.show()
+        # 拆分
+        im = binarizing(im, 150)
+        # 降噪
+        im = depoint(im)
+        im.show()
+        # 转换
+        text = pytesseract.image_to_string(im, config='-psm 7')
+        print(text)
+    #     codelist.append('{}  {} \n'.format(path, text))
+    # # 写入文件
+    # with open(filename,'a') as f:
+    #     for code in codelist:
+    #         f.write(code)

@@ -37,12 +37,12 @@ class Captcha:
         rgb_g//=cnt
         rgb_b//=cnt
         
-        print(str(cnt//col)+"行")
-        print(str(col)+"列")
-        print("RGB平均值")
-        print("R:"+str(rgb_r))
-        print("G:"+str(rgb_g))
-        print("B:"+str(rgb_b))
+        # print(str(cnt//col)+"行")
+        # print(str(col)+"列")
+        # print("RGB平均值")
+        # print("R:"+str(rgb_r))
+        # print("G:"+str(rgb_g))
+        # print("B:"+str(rgb_b))
 
 
         
@@ -76,17 +76,17 @@ class Captcha:
         background_g//=background_cnt
         background_b//=background_cnt
 
-        print("RGB背景色均值")
-        print("R:"+str(background_r))
-        print("G:"+str(background_g))
-        print("B:"+str(background_b))
+        # print("RGB背景色均值")
+        # print("R:"+str(background_r))
+        # print("G:"+str(background_g))
+        # print("B:"+str(background_b))
         font_r//=font_cnt
         font_g//=font_cnt
         font_b//=font_cnt
-        print("RGB字体颜色均值")
-        print("R:"+str(font_r))
-        print("G:"+str(font_g))
-        print("B:"+str(font_b))
+        # print("RGB字体颜色均值")
+        # print("R:"+str(font_r))
+        # print("G:"+str(font_g))
+        # print("B:"+str(font_b))
  
         limit = 0.5
         limit_r = background_r - (background_r - font_r)*limit
